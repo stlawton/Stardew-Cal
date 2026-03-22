@@ -61,6 +61,8 @@ public class Main {
 
         }
 
+        System.out.println();
+        System.out.printf("%35s%n", "---- Crop Values ----");
         for(int i = 0; i < numCrops.size(); i++){
             System.out.println(numCrops.get(i)[0] + ": " + harvestValue.get(i));
 
