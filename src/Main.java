@@ -10,10 +10,7 @@ public class Main {
         ArrayList<String[]> cropsPlanted = new ArrayList<>();
         cropsPlanted = getCropsPlanted();
 
-        //Test to see if input is read and correctly added to the arraylist
-        for (String[] row : cropsPlanted) {
-            System.out.println(Arrays.toString(row));
-        }
+        printCropValues(cropsPlanted);
 
     }
 
@@ -38,5 +35,36 @@ public class Main {
         }
 
         return cropQuantity;
+    }
+
+    public static void printCropValues(ArrayList<String[]> numCrops){
+        ArrayList<String[]> basePrices = new ArrayList<>();
+        basePrices.add(new String[] {"potato", "88"});
+        basePrices.add(new String[] {"kale", "121"});
+        basePrices.add(new String[] {"garlic", "66"});
+
+        ArrayList<Integer> harvestValue = new ArrayList<>();
+
+        for (String[] row : numCrops) {
+            int value;
+            int quantity;
+            String cropName = row[0];
+
+            for(int i = 0; i < basePrices.size(); i++) {
+                if (cropName.equals(basePrices.get(i)[0])) {
+                    value = Integer.parseInt(basePrices.get(i)[1]);
+                    quantity = Integer.parseInt(row[1]);
+                    harvestValue.add(value * quantity);
+                }
+            }
+
+
+        }
+
+        for(int i = 0; i < numCrops.size(); i++){
+            System.out.println(numCrops.get(i)[0] + ": " + harvestValue.get(i));
+
+
+        }
     }
 }
